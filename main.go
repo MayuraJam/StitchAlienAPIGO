@@ -16,5 +16,5 @@ func main() {
 	fmt.Println("Hello my new project")
 	database.SetUpDB()
 	route.SetupRoutes(basePath, path)
-	log.Fatal(http.ListenAndServe(":8076", nil))
+	log.Fatal(http.ListenAndServe(":8074", nil))
 }

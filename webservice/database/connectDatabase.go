@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"time"
 
+	forenv "github.com/MayuraJam/StitchAlienAPIGO/forEnv"
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -12,7 +13,9 @@ var Db *sql.DB
 
 func SetUpDB() {
 	var err error
-	Db, err = sql.Open("mysql", "root:MayuSQL3310@tcp(127.0.0.1:3306)/stitchdb")
+	dbUrl := forenv.EnvVatiable("DATABASE_URL")
+	Db, err = sql.Open("mysql", dbUrl)
+
 	if err != nil {
 		fmt.Println("fail to connect")
 	} else {
